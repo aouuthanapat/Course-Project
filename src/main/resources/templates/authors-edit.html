@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Авторы</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование информации об авторах</h1>
+    <div th:each="el : ${author}">
+        <form method="post">
+            <p>Имя</p>
+            <input type="text" name="firstname" th:value="${el.firstName}" placeholder="Имя" minlength="2" maxlength="40" required class="form-control"><br>
+            <p>Фамилия</p>
+            <input type="text" name="lastname" th:value="${el.lastName}" placeholder="Фамилия" required class="form-control"><br>
+            <p>Род деятельности</p>
+            <input type="text" name="profession" th:value="${el.getAuthorInfo().profession}" placeholder="Профессия" class="form-control"><br>
+            <p>Количество экспонатов</p>
+            <input type="number" name="exhibitamount" th:value="${el.getAuthorInfo().exhibitAmount}" class="form-control"><br>
+            <button type="submit" class="btn btn-warning">Обновить</button>
+        </form>
+    </div>
+</div>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>

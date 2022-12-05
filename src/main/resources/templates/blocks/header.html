@@ -1,0 +1,28 @@
+<div th:fragment="header" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom ">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="container fs-4">Музей</span>
+        </a>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <div class=" border border-4 mb-2 mt-2">
+                <a class="me-3 py-2 text-dark" href="/">Главная</a>
+                <a class="me-3 py-2 text-dark" href="/events">Экскурсии</a>
+                <a class="me-3 py-2 text-dark" href="/exhibits">Экспонаты</a>
+                <a class="me-3 py-2 text-dark" href="/authors">Авторы</a>
+            </div>
+            <br>
+            <div sec:authorize="hasRole('ADMIN')" class="border border-4 mb-2 mt-2">
+                <a class="me-3 py-2 text-dark" href="/events/add">Добавить экскурсию</a>
+                <a class="me-3 py-2 text-dark" href="/exhibits/add">Добавить экспонат</a>
+                <a class="me-3 py-2 text-dark" href="/authors/add">Добавить авторов</a>
+                <a class="me-3 py-2 text-dark"
+                   href="http://localhost/openserver/phpmyadmin/index.php?route=/database/structure&server=1&db=spring_museum_2"
+                   target="_blank">База
+                    данных</a>
+            </div>
+
+
+        </nav>
+    </div>
+</div>
